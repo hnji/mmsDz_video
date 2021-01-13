@@ -4,7 +4,7 @@ Movie film, background;
 int brojac, brojPiksela = 640 * 352;
 PImage pozadina;
 color boja1, boja2;
-float razlika1, razlika2, razlika3, najvecaRazlika, dopustenoOdstupanje = 20;
+float razlika1, razlika2, razlika3, najvecaRazlika, dopustenoOdstupanje = 25;
 color boje[] = {#FF0000, #00FF00, #0000FF, #000000, #FFFF00, #000000};
 color trenutacnaBoja=color(255,0,0);
 int indeksBoje;
@@ -18,7 +18,7 @@ void setup() {
   size(640,352);
   //film = new Movie(this, "mateaMute.m4v");
   background = new Movie(this, "Oceans.m4v");
-  film = new Movie(this, "testVideo.mp4");
+  film = new Movie(this, "mateaVideo.mp4");
   //background = new Movie(this, "background.mp4");
   film.playbin.setVolume(0);
   film.play();
@@ -26,7 +26,7 @@ void setup() {
   background.loop();
   //film.volume(0);
   //pozadina = loadImage("mateaPozadina.jpeg");
-  pozadina = loadImage("testPozadina.png");
+  pozadina = loadImage("mateaPozadina.png");
 
   pozadina.loadPixels();
 }
