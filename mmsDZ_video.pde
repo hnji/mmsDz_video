@@ -16,14 +16,18 @@ boolean flagPause = false;
 
 void setup() {
   size(640,352);
-  film = new Movie(this, "mateaMute.m4v");
-  background = new Movie(this, "Oceans.m4v");
-  //film.playbin.setVolume(0);
+  //film = new Movie(this, "mateaMute.m4v");
+  //background = new Movie(this, "Oceans.m4v");
+  film = new Movie(this, "testVideo.mp4");
+  background = new Movie(this, "background.mp4");
+  film.playbin.setVolume(0);
   film.play();
   film.loop();
   background.loop();
   //film.volume(0);
-  pozadina = loadImage("mateaPozadina.jpeg");
+  //pozadina = loadImage("mateaPozadina.jpeg");
+    //pozadina = loadImage("testPozadina.jpeg");
+
   pozadina.loadPixels();
 }
 void draw() {
