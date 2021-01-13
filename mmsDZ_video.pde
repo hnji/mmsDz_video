@@ -26,7 +26,7 @@ void setup() {
   background.loop();
   //film.volume(0);
   //pozadina = loadImage("mateaPozadina.jpeg");
-    //pozadina = loadImage("testPozadina.jpeg");
+  pozadina = loadImage("testPozadina.jpeg");
 
   pozadina.loadPixels();
 }
