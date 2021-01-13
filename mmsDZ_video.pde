@@ -16,17 +16,17 @@ boolean flagPause = false;
 
 void setup() {
   size(640,352);
-  //film = new Movie(this, "mateaMute.m4v");
-  //background = new Movie(this, "Oceans.m4v");
-  film = new Movie(this, "testVideo.mp4");
-  background = new Movie(this, "background.mp4");
-  film.playbin.setVolume(0);
-  film.play();
+  film = new Movie(this, "mateaMute.m4v");
+  background = new Movie(this, "Oceans-1.m4v");
+  //film = new Movie(this, "testVideo.mp4");
+  //background = new Movie(this, "background.mp4");
+  //film.playbin.setVolume(0);
+  //film.play();
   film.loop();
   background.loop();
   //film.volume(0);
-  //pozadina = loadImage("mateaPozadina.jpeg");
-  pozadina = loadImage("testPozadina.png");
+  pozadina = loadImage("mateaPozadina.jpeg");
+  //pozadina = loadImage("testPozadina.png");
 
   pozadina.loadPixels();
 }
@@ -49,8 +49,8 @@ void draw() {
     }
   }
   film.updatePixels();
-  background.updatePixels();
-  image(background,0,0);
+  //background.updatePixels();
+  //image(background,0,0);
   image(film,0,0);
   
   //fill(0); rect(0,0,360,28);
@@ -70,11 +70,19 @@ void draw() {
   }
   
   if (flagPause == true)
-    film.pause();
+  {
+        film.pause();
+        background.pause();
+  }
+  
   else
-    film.play();
+  {
+        film.play();
+        background.play();
+  }
   
   film.speed(brzina);
+  background.speed(brzina);
 }
 // Ova funkcija se poziva svaki puta 
 // kad je u videu dostupna nova slika za čitanje
@@ -109,7 +117,11 @@ void keyPressed() {
     else brzina = 1;
   }
   if ( key == 'j' )
-    film.jump(film.duration()/2);
+  {
+        film.jump(film.duration()/2);
+        background.jump(background.duration()/2);
+
+  }
     
   if (key == 'h')
   {
