@@ -16,10 +16,10 @@ boolean flagPause = false;
 
 void setup() {
   size(640,352);
-  background = new Movie(this, "Oceans.m4v");
+  background = new Movie(this, "Oceans-43.m4v");
   film = new Movie(this, "mateaVideo.mp4");
   film.playbin.setVolume(0);
-  film.play();
+  //film.play();
   film.loop();
   background.loop();
   pozadina = loadImage("mateaPozadina.png");
@@ -65,11 +65,19 @@ void draw() {
   }
   
   if (flagPause == true)
-    film.pause();
-  else
-    film.play();
+  {
+        film.pause();
+        background.pause();
+  }
+    else
+    {
+        film.play();
+        background.play();
+    }
+    
   
   film.speed(brzina);
+  background.speed(brzina);
 }
 // Ova funkcija se poziva svaki puta 
 // kad je u videu dostupna nova slika za čitanje
@@ -98,7 +106,11 @@ void keyPressed() {
     else brzina = 1;
   }
   if ( key == 'j' )
+  {
     film.jump(film.duration()/2);
+    background.jump(film.duration()/2);
+  }
+    
     
   if (key == 'h')
   {
