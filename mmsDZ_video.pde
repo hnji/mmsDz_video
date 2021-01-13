@@ -16,18 +16,13 @@ boolean flagPause = false;
 
 void setup() {
   size(640,352);
-  //film = new Movie(this, "mateaMute.m4v");
   background = new Movie(this, "Oceans.m4v");
   film = new Movie(this, "mateaVideo.mp4");
-  //background = new Movie(this, "background.mp4");
   film.playbin.setVolume(0);
   film.play();
   film.loop();
   background.loop();
-  //film.volume(0);
-  //pozadina = loadImage("mateaPozadina.jpeg");
   pozadina = loadImage("mateaPozadina.png");
-
   pozadina.loadPixels();
 }
 void draw() {
@@ -85,12 +80,6 @@ void movieEvent(Movie m) {
 void keyPressed() {
   if (key == 'q') {
     exit();
-  }
-  if (key == 'b') {
-    if (++indeksBoje >= boje.length) {
-      indeksBoje=0;
-    }
-    trenutacnaBoja = boje[indeksBoje];
   }
   if (key == '+') {
     ++dopustenoOdstupanje;
